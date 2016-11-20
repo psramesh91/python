@@ -9,17 +9,17 @@
 #793397
 
 #!/bin/python3
-import math
-t = int(input().strip())
-for a0 in range(t):
-    n = int(input().strip())
-    i=n
-    flag=1
-    while flag==1:
-        if str(i) == str(i)[::-1]:
-            for j in range(int(math.sqrt(n)),99,-1):
-                    if i%j==0:
-                        print(i)
-                        flag=0
-                        break
-        i-=1
+arr=[]
+for i in range(999,99,-1):
+    for j in range(999,99,-1):
+        x=str(i*j)
+        if x==x[::-1]:
+            arr.append(int(x))
+arr=sorted(list(set(arr)),reverse=True)
+n=int(input())
+for i in range(n):
+    limit=int(input())
+    for i in arr:
+        if i < limit:
+            print(i)
+            break
